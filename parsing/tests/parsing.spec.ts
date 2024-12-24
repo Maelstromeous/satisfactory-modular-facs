@@ -66,7 +66,7 @@ describe('common', () => {
 
 
         test('buildings should generate correct data', () => {
-            expect(Object.keys(results.buildings).length).toBe(14);
+            expect(Object.keys(results.buildings).length).toBe(15);
             expect(results.buildings).toStrictEqual({
                 assemblermk1: 15,
                 blender: 75,
@@ -75,6 +75,7 @@ describe('common', () => {
                 foundrymk1: 16,
                 hadroncollider: 0.1,  // This has variable power consumption and is calculated in the recipe
                 // The generators don't consume any power, they produce it.
+                generatorbiomass: 0,
                 generatorcoal: 0,
                 generatorfuel: 0,
                 generatornuclear: 0,
@@ -112,9 +113,13 @@ describe('common', () => {
             const missingParts = partsList.filter(part => !parts.has(part));
             const extraParts = Array.from(parts).filter(part => !partsList.includes(part));
 
-            console.log('Missing parts:');
-            console.log(missingParts);
-            console.log('Extra parts:', extraParts);
+            if (missingParts && missingParts.length > 0) {
+                console.log('Missing parts:');
+                console.log(missingParts);
+            }
+            if (extraParts && extraParts.length > 0) {
+                console.log('Extra parts:', extraParts);
+            }
             expect(missingParts.length).toBe(0);
             expect(extraParts.length).toBe(0);
             expect(Object.keys(results.items.parts).length).toBe(parts.size);

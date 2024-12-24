@@ -218,15 +218,15 @@ function getPowerGeneratingRecipes(
                 const primaryFuelPart = parts.parts[primaryFuel];
 
                 const burnDurationInMins = primaryFuelPart.energyGeneratedInMJ / burnRateMJ;
-                const burnDuration = burnDurationInMins * 60; // Convert to seconds
+                const burnDurationInS = burnDurationInMins * 60; // Convert to seconds
 
                 const fuelItem: ParserFuel = {
                     primaryFuel,
                     supplementalResource: fuel.mSupplementalResourceClass ? getPartName(fuel.mSupplementalResourceClass) : "",
                     byProduct: fuel.mByproduct ? getPartName(fuel.mByproduct) : "",
                     byProductAmount: Number(fuel.mByproductAmount),
-                    byProductPerMin: Number(fuel.mByproductAmount) / burnDurationInMins,
-                    duration: burnDuration
+                    byProductAmountPerMin: Number(fuel.mByproductAmount) / burnDurationInMins,
+                    burnDurationInS: burnDurationInS
                 };
 
                 //Find the part for the primary fuel
@@ -256,7 +256,7 @@ function getPowerGeneratingRecipes(
                 if (fuelItem.byProduct) {
                     byproduct = {
                         part: fuelItem.byProduct,
-                        perMin: fuelItem.byProductPerMin,
+                        perMin: fuelItem.byProductAmountPerMin,
                     }
                 }
 

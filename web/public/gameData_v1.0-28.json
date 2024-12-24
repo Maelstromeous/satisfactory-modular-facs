@@ -5,6 +5,7 @@
         "constructormk1": 4,
         "converter": 0.1,
         "foundrymk1": 16,
+        "generatorbiomass": 0,
         "generatorcoal": 0,
         "generatorfuel": 0,
         "generatornuclear": 0,
@@ -213,20 +214,6 @@
                 "isFicsmas": false,
                 "energyGeneratedInMJ": 0
             },
-            "CrystalOscillator": {
-                "name": "Crystal Oscillator",
-                "stackSize": 100,
-                "isFluid": false,
-                "isFicsmas": false,
-                "energyGeneratedInMJ": 0
-            },
-            "CrystalShard": {
-                "name": "Power Shard",
-                "stackSize": 100,
-                "isFluid": false,
-                "isFicsmas": false,
-                "energyGeneratedInMJ": 0
-            },
             "Crystal_mk2": {
                 "name": "Yellow Power Slug",
                 "stackSize": 50,
@@ -237,6 +224,20 @@
             "Crystal_mk3": {
                 "name": "Purple Power Slug",
                 "stackSize": 50,
+                "isFluid": false,
+                "isFicsmas": false,
+                "energyGeneratedInMJ": 0
+            },
+            "CrystalOscillator": {
+                "name": "Crystal Oscillator",
+                "stackSize": 100,
+                "isFluid": false,
+                "isFicsmas": false,
+                "energyGeneratedInMJ": 0
+            },
+            "CrystalShard": {
+                "name": "Power Shard",
+                "stackSize": 100,
                 "isFluid": false,
                 "isFicsmas": false,
                 "energyGeneratedInMJ": 0
@@ -368,8 +369,8 @@
                 "energyGeneratedInMJ": 180
             },
             "Gift": {
-                "name": "Gift",
-                "stackSize": 500,
+                "name": "FICSMAS Gift",
+                "stackSize": 200,
                 "isFluid": false,
                 "isFicsmas": true,
                 "energyGeneratedInMJ": 0
@@ -400,7 +401,7 @@
                 "stackSize": 50,
                 "isFluid": false,
                 "isFicsmas": false,
-                "energyGeneratedInMJ": 250
+                "energyGeneratedInMJ": 0
             },
             "HazmatFilter": {
                 "name": "Iodine-Infused Filter",
@@ -435,7 +436,7 @@
                 "stackSize": 50,
                 "isFluid": false,
                 "isFicsmas": false,
-                "energyGeneratedInMJ": 250
+                "energyGeneratedInMJ": 0
             },
             "IonizedFuel": {
                 "name": "Ionized Fuel",
@@ -501,11 +502,11 @@
                 "energyGeneratedInMJ": 750
             },
             "LiquidOil": {
-                "name": "Liquid Oil",
+                "name": "Crude Oil",
                 "stackSize": 0,
                 "isFluid": true,
                 "isFicsmas": false,
-                "energyGeneratedInMJ": 0
+                "energyGeneratedInMJ": 320
             },
             "LiquidTurboFuel": {
                 "name": "Turbofuel",
@@ -662,7 +663,7 @@
                 "energyGeneratedInMJ": 0
             },
             "OreUranium": {
-                "name": "Uranium Ore",
+                "name": "Uranium",
                 "stackSize": 100,
                 "isFluid": false,
                 "isFicsmas": false,
@@ -1023,7 +1024,7 @@
                 "stackSize": 50,
                 "isFluid": false,
                 "isFicsmas": false,
-                "energyGeneratedInMJ": 250
+                "energyGeneratedInMJ": 0
             },
             "Stator": {
                 "name": "Stator",
@@ -1065,7 +1066,7 @@
                 "stackSize": 50,
                 "isFluid": false,
                 "isFicsmas": false,
-                "energyGeneratedInMJ": 250
+                "energyGeneratedInMJ": 0
             },
             "Stone": {
                 "name": "Limestone",
@@ -1212,15 +1213,15 @@
                 "limit": 257
             },
             "Gift": {
-                "name": "Gift",
+                "name": "FICSMAS Gift",
                 "limit": 100000000
             },
             "HatcherParts": {
-                "name": "Hatcher Parts",
+                "name": "Hatcher Remains",
                 "limit": 100000000
             },
             "HogParts": {
-                "name": "Hog Parts",
+                "name": "Hog Remains",
                 "limit": 100000000
             },
             "Leaves": {
@@ -1268,11 +1269,11 @@
                 "limit": 10200
             },
             "SpitterParts": {
-                "name": "Spitter Parts",
+                "name": "Spitter Remains",
                 "limit": 100000000
             },
             "StingerParts": {
-                "name": "Stinger Parts",
+                "name": "Stinger Remains",
                 "limit": 100000000
             },
             "Stone": {

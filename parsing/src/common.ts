@@ -7,7 +7,7 @@ const whitelist = [
     // Nuclear Waste is not produced by any buildings - it's a byproduct of Nuclear Power Plants
     "Desc_NuclearWaste_C",
     "Desc_PlutoniumWaste_C",
-    // These are colleactable items, not produced by buildings
+    // These are collectable items, not produced by buildings
     "Desc_Leaves_C",
     "Desc_Wood_C",
     "Desc_Mycelia_C",
@@ -74,7 +74,6 @@ function getPowerProducerBuildingName(className: string): string | null {
         // If contains _automated, remove it
         return buildingName.replace('_automated', '');
     }
-
     return null
 }
 

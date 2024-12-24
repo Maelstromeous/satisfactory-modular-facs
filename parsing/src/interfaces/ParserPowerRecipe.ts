@@ -21,6 +21,6 @@ export interface ParserFuel {
   supplementalResource: string;
   byProduct: string;
   byProductAmount: number;
-  byProductPerMin: number;
-  duration: number
+  byProductAmountPerMin: number;
+  burnDurationInS: number
 }

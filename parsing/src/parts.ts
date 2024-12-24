@@ -68,7 +68,7 @@ function getItems(data: any[]): ParserItemDataInterface {
                     stackSize: 50, //SS_SMALL
                     isFluid: false,
                     isFicsmas: false,
-                    energyGeneratedInMJ: 250
+                    energyGeneratedInMJ: 0
                 };
             } else if (entry.ClassName === "Desc_SpitterParts_C") {
                 parts["SpitterParts"] = {
@@ -76,7 +76,7 @@ function getItems(data: any[]): ParserItemDataInterface {
                     stackSize: 50, //SS_SMALL
                     isFluid: false,
                     isFicsmas: false,
-                    energyGeneratedInMJ: 250
+                    energyGeneratedInMJ: 0
                 };
             } else if (entry.ClassName === "Desc_StingerParts_C") {
                 parts["StingerParts"] = {
@@ -84,7 +84,7 @@ function getItems(data: any[]): ParserItemDataInterface {
                     stackSize: 50, //SS_SMALL
                     isFluid: false,
                     isFicsmas: false,
-                    energyGeneratedInMJ: 250
+                    energyGeneratedInMJ: 0
                 };
             } else if (entry.ClassName === "Desc_HatcherParts_C") {
                 parts["HatcherParts"] = {
@@ -92,7 +92,7 @@ function getItems(data: any[]): ParserItemDataInterface {
                     stackSize: 50, //SS_SMALL
                     isFluid: false,
                     isFicsmas: false,
-                    energyGeneratedInMJ: 250
+                    energyGeneratedInMJ: 0
                 };
             } else if (entry.ClassName === "Desc_DissolvedSilica_C") {
                 // This is a special intermediate alt product
@@ -106,17 +106,17 @@ function getItems(data: any[]): ParserItemDataInterface {
             } else if (entry.ClassName === "Desc_LiquidOil_C") {
                 // This is a special liquid raw material
                 parts["LiquidOil"] = {
-                    name: "Liquid Oil",
+                    name: "Crude Oil",
                     stackSize: 0, //SS_FLUID
                     isFluid: true,
                     isFicsmas: false,
-                    energyGeneratedInMJ: 0
+                    energyGeneratedInMJ: 320
                 }; 
             } else if (entry.ClassName === "Desc_Gift_C") {
                 // this is a ficsmas collectable
                 parts["Gift"] = {
-                    name: "Gift",
-                    stackSize: 500, //SS_HUGE
+                    name: "FICSMAS Gift",
+                    stackSize: 200, //SS_BIG
                     isFluid: false,
                     isFicsmas: true,
                     energyGeneratedInMJ: 0
@@ -178,6 +178,15 @@ function getItems(data: any[]): ParserItemDataInterface {
                     isFicsmas: false,
                     energyGeneratedInMJ: 0
                 }; 
+            } else if (entry.ClassName === "Desc_OreUranium_C") { 
+                // This one fixes a bug with the current extraction, where a product is called Uranium Ore, but the part is called Uranium
+                parts["OreUranium"] = {
+                    name: "Uranium",
+                    stackSize: 100, //SS_MEDIUM
+                    isFluid: false,
+                    isFicsmas: false,
+                    energyGeneratedInMJ: 0
+                }; 
             }
 
             if (!entry.ClassName) return;
@@ -234,12 +243,7 @@ function getItems(data: any[]): ParserItemDataInterface {
 
     // Sort the parts by key
     return {
-        parts: Object.keys(parts)
-            .sort()
-            .reduce((sortedObj: { [key: string]: ParserPart }, key: string) => {
-                sortedObj[key] = parts[key];
-                return sortedObj;
-            }, {}),
+        parts: parts,
         rawResources
     };
 }
@@ -312,19 +316,19 @@ function getRawResources(data: any[]): { [key: string]: ParserRawResource } {
 
     //Manually add alien parts to the rawResources list
     rawResources["HatcherParts"] = {
-        name: "Hatcher Parts",
+        name: "Hatcher Remains",
         limit: 100000000  
     };
     rawResources["HogParts"] = {
-        name: "Hog Parts",
+        name: "Hog Remains",
         limit: 100000000  
     };
     rawResources["SpitterParts"] = {
-        name: "Spitter Parts",
+        name: "Spitter Remains",
         limit: 100000000  
     };
     rawResources["StingerParts"] = {
-        name: "Stinger Parts",
+        name: "Stinger Remains",
         limit: 100000000  
     };
 
@@ -344,7 +348,7 @@ function getRawResources(data: any[]): { [key: string]: ParserRawResource } {
     
     //Ficmas items
     rawResources["Gift"] = {
-        name: "Gift",
+        name: "FICSMAS Gift",
         limit: 100000000  
     };
 
