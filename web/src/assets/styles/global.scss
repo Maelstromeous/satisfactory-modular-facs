@@ -102,7 +102,7 @@
   border: 2px solid rgb(108, 108, 108) !important;
 
   .header {
-    padding: 12px 16px 0 !important;
+    padding: 12px 12px 0 !important;
     margin-bottom: 0;
     border-bottom: 1px solid rgb(108, 108, 108) !important;
     align-items: center;
@@ -163,6 +163,10 @@
     padding: 0;
     text-align: center
   }
+}
+
+.v-overlay__scrim {
+  background-color: rgba(119, 119, 119, 0.7) !important;
 }
 
 // Dial back some of the vuetify text sizes cos they're massive

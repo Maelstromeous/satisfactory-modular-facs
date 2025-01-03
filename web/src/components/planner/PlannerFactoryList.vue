@@ -1,5 +1,11 @@
 <template>
-  <draggable v-model="factoriesCopy" class="factory-list" item-key="id" @end="onDragEnd">
+  <draggable
+    v-show="show"
+    v-model="factoriesCopy"
+    class="factory-list"
+    item-key="id"
+    @end="onDragEnd"
+  >
     <template #item="{ element }">
       <div :key="element.id" class="mb-1 rounded" :class="factoryClass(element)">
         <v-card
@@ -96,8 +102,11 @@
   import { Factory } from '@/interfaces/planner/FactoryInterface'
   import { countActiveTasks } from '@/utils/factory-management/factory'
   import draggable from 'vuedraggable'
+  import eventBus from '@/utils/eventBus'
 
   const navigateToFactory = inject('navigateToFactory') as (id: number, subsection?: string) => void
+
+  const show = ref(false)
 
   // eslint-disable-next-line func-call-spacing
   const emit = defineEmits<{
@@ -110,6 +119,10 @@
   watch(() => compProps.factories, factories => {
     factoriesCopy.value = [...factories]
   }, { deep: true })
+
+  eventBus.on('showLoading', () => {
+    show.value = true
+  })
 
   const factoryClass = (factory: Factory) => {
     return {

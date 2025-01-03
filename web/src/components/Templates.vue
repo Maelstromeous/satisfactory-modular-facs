@@ -54,7 +54,7 @@
   import { create317Scenario } from '@/utils/factory-setups/317-malformed-plan'
   import { createMaelsBigBoiPlan } from '@/utils/factory-setups/maels-big-boi-plan'
 
-  const { setFactories, isDebugMode } = useAppStore()
+  const { startLoad, isDebugMode } = useAppStore()
 
   const dialog = ref(false)
 
@@ -121,5 +121,6 @@
   const loadTemplate = (template: Template) => {
     setFactories(template.data, true)
     dialog.value = false
+    startLoad(template.data, true)
   }
 </script>
